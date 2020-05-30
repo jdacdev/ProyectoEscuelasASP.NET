@@ -8,10 +8,7 @@ namespace HolaMundoMVC.Controllers
     {
         public IActionResult Index()
         {
-            var escuela = new Escuela();
-            escuela.IdEscuela = Guid.NewGuid().ToString();
-            escuela.Nombre = "Escuela de Juan";
-            escuela.AñoFundacion = 2020;
+            var escuela = new Escuela("Escuela de Juan",2020,TiposEscuela.Secundaria);
 
             ViewBag.FechaActual = System.DateTime.Today;
             // Por convension ...
