@@ -12,8 +12,10 @@ namespace HolaMundoMVC.Controllers
             escuela.IdEscuela = Guid.NewGuid().ToString();
             escuela.Nombre = "Escuela de Juan";
             escuela.AñoFundacion = 2020;
+
+            ViewBag.FechaActual = System.DateTime.Today;
             // Por convension ...
-            // si no se le especifica una vista el metodo retornara la visrta que corresponda con su nombre en las views de Escuela
+            // si no se le especifica una vista el metodo retornara la vista que corresponda con su nombre en las views de Escuela
             return View(escuela);
         }
     }
