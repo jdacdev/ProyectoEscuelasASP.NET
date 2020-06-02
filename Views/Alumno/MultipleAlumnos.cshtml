@@ -1,0 +1,27 @@
+﻿@model List<Alumno>
+
+@{
+    ViewData["Title"] = "Información Alumno";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table>
+    <thead class="table table-dark table-hover">
+    <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Nombre</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var alumno in @Model)
+    {
+        <tr>
+            <td>@alumno.Identificador</td>
+            <td>@alumno.Nombre</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+<p><i>@ViewBag.FechaActual</i></p>
