@@ -4,6 +4,14 @@
     ViewData["Title"] = "Información Asignaturas";
 }
 <h1>@ViewData["Title"]</h1>
-<h2>Nombre: @Model.Nombre</h2>  
+
+<strong>Esto es desde la vista PRINCIPAL</strong>
+<p>
+    Nombre: @Model.Nombre <br/>
+    Id : @Model.Identificador
+</p>  
+
+<strong>Esto es desde la vista PARCIAL</strong>
+<partial name="AsignaturaSimple"/> 
 
 <p><i>@ViewBag.FechaActual</i></p>

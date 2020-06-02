@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using HolaMundoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +9,13 @@ namespace HolaMundoMVC.Controllers
     {
         public IActionResult Index()
         {
-            #region  set Escuela
+            #region  set Escuelas
             var escuela = new Escuela("Escuela de Juan",2020,TiposEscuela.Secundaria);
             escuela.Ciudad = "Bogotá";
             escuela.Pais = "Colombia";
             escuela.Direccion = "Calle falsa 123";
-            #endregion  set Escuela
+            
+            #endregion  set Escuelas
 
             ViewBag.FechaActual = System.DateTime.Today;
             // Por convension ...
