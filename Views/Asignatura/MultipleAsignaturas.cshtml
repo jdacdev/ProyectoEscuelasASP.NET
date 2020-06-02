@@ -5,9 +5,6 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-@foreach(var asignatura in @Model)
-{
-    <partial name="EscuelaBaseSimple" model = "asignatura"/> 
-}
+<partial name = "EscuelaBaseMultiple">
 
 <p><i>@ViewBag.FechaActual</i></p>
