@@ -5,8 +5,11 @@ namespace HolaMundoMVC.Models
 {
     public class Alumno : EscuelaBase
     {
-        ///cada alumno tendra su propia lista de evaluaciones
-        public List<Evaluacion> ListaEvaluacionesAlumno { get; set; } = new List<Evaluacion>();
+         //referencia al padre - Curso
+        public string CursoId {get; set;}
 
+        //esta propiedad adicional es para recuperar el objeto Curso completo
+        public Curso Curso {get; set;}
+        public List<Evaluacion> Evaluaciones { get; set; }
     }
 }
