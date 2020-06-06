@@ -48,6 +48,9 @@ namespace HolaMundoMVC.Models
         // es posible escribir de una forma mas corta por medio de asignacion usando igualacion por tuplas...
         public Escuela(string pNombre, int pAño) => (Nombre, AñoFundacion, CursosList) = (pNombre, pAño, new List<Curso>());
 
+        public Escuela(){
+        
+        }
         //Es posible tener mas de un constructor desde que tengan una firma distinta
         //firma = nombre+acceso+ retorno +parametros(tipos)
         // es posible poner parametros como opcionales a la hora de llamar al constructor añadiendole un valor por defecto

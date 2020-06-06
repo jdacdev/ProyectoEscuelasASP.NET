@@ -9,9 +9,15 @@ namespace HolaMundoMVC.Controllers
     public class EscuelaController : Controller
     {
         private EscuelaContext _context;
+
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
+        }
+        
         public IActionResult Index()
         {
-            var escuelaTemp = _context.Escuelas.FirstOrDefault();
+            var escuelaTemp = _context.Escuelas.FirstOrDefault(); //es valido en este caso puesto que solo tenemos una escuela
             ViewBag.FechaActual = System.DateTime.Today;
 
             // Por convension ...
@@ -19,9 +25,6 @@ namespace HolaMundoMVC.Controllers
             return View(escuelaTemp);
         }
 
-        public EscuelaController(EscuelaContext context)
-        {
-            _context = context;
-        }
+        
     }
 }
