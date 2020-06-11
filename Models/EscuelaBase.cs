@@ -8,18 +8,17 @@ namespace HolaMundoMVC.Models
     {
         // implementando esta clase ya no ce tendran que crear e inicializar atributos id y nombre en las demas clase del objeto
         // se produce una disminucion de condigo considerable
-        [Key]
-        public string Identificador { get; private set; }
+        public string Id { get; set; }
         public string Nombre { get; set; }
 
-        public EscuelaBase(){
-
-            this.Identificador  = Guid.NewGuid().ToString(); //Creamos Id automaticamente
+        public EscuelaBase()
+        {
+            //this.Id  = Guid.NewGuid().ToString(); //Creamos Id automaticamente
         }
 
         public override string ToString()
         {
-            return $"{Nombre},{Identificador}";
+            return $"{Nombre},{Id}";
         }
     }
 }

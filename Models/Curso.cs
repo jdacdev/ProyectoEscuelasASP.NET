@@ -22,7 +22,7 @@ namespace HolaMundoMVC.Models
 
         public override string ToString()
         {
-            return $" Nombre :{Nombre} \n Jornada: {Jornada} \n  Id: {Identificador} \n-------  ";
+            return $" Nombre :{Nombre} \n Jornada: {Jornada} \n  Id: {Id} \n-------  ";
         }
     }
 }
