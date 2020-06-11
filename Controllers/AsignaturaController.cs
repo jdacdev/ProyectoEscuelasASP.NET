@@ -13,12 +13,26 @@ namespace HolaMundoMVC.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        ///
+        /// visualizar asignatura por su ID
+        ///
+        [Route("Asignatura/Index/")]
+        [Route("Asignatura/Index/{IdAsignatura}")]
+        public IActionResult Index(string IdAsignatura)
         {
-            ViewBag.FechaActual = System.DateTime.Today;
-            // Por convension ...
-            // si no se le especifica una vista el metodo retornara la vista que corresponda con su nombre en las views de Asignatura
-            return View(_context.Asignaturas.FirstOrDefault());
+            if(!string.IsNullOrEmpty(IdAsignatura))
+            {
+                var asignatura = from asig in _context.Asignaturas
+                                        where asig.Id == IdAsignatura
+                                        select asig;
+
+                return View(asignatura);
+            }
+            else
+            {
+                return View("MultipleAsignaturas",_context.Asignaturas);
+            }
+
         }
 
         public IActionResult MultipleAsignaturas()
