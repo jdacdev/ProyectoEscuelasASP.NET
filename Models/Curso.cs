@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HolaMundoMVC.Models
 {
     public class Curso : EscuelaBase
     {
+        [Required]
+        public override string Nombre {get; set;}
         public TiposJornada Jornada { get; set; }
 
         public List<Asignatura> Asignaturas {get; set;}

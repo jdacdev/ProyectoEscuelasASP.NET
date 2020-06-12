@@ -9,7 +9,7 @@ namespace HolaMundoMVC.Models
         // implementando esta clase ya no ce tendran que crear e inicializar atributos id y nombre en las demas clase del objeto
         // se produce una disminucion de condigo considerable
         public string Id { get; set; }
-        public string Nombre { get; set; }
+        public virtual string Nombre { get; set; }
 
         public EscuelaBase()
         {

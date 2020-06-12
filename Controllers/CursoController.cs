@@ -34,6 +34,32 @@ namespace HolaMundoMVC.Controllers
             }
 
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            if (ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
+                curso.EscuelaId = escuela.Id;
+
+                curso.Id = Guid.NewGuid().ToString();
+
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
+
+                ViewBag.MensajeExra ="Curso Creado";
+                return View("Index",_context.Cursos);
+            }
+            else
+            {
+                return View(curso);
+            }
+        }
 
         public IActionResult MultipleCursos()
         {
