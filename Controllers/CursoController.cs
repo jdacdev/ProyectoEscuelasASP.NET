@@ -6,38 +6,38 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HolaMundoMVC.Controllers
 {
-    public class AlumnoController : Controller
+    public class CursoController : Controller
     {
         private EscuelaContext _context;
-        public AlumnoController(EscuelaContext context)
+        public CursoController(EscuelaContext context)
         {
             _context = context;
         }
         ///
-        /// visualizar Alumnos
+        /// visualizar Cursos
         ///
-        [Route("Alumno/Index/")]
-        [Route("Alumno/Index/{id}")]
+        [Route("Curso/Index/")]
+        [Route("Curso/Index/{id}")]
         public IActionResult Index(string id)
         {
             if(!string.IsNullOrEmpty(id))
             {
-                var alumno = from asig in _context.Alumnos
+                var Curso = from asig in _context.Cursos
                                         where asig.Id == id
                                         select asig;
 
-                return View(alumno.SingleOrDefault());
+                return View(Curso.SingleOrDefault());
             }
             else
             {
-                return View("MultipleAlumnos",_context.Alumnos);
+                return View("MultipleCursos",_context.Cursos);
             }
 
         }
 
-        public IActionResult MultipleAlumnos()
+        public IActionResult MultipleCursos()
         {
-            return View(_context.Alumnos);
+            return View(_context.Cursos);
         }
     }
 }

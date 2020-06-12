@@ -1,0 +1,17 @@
+﻿@model Curso
+
+@{
+    ViewData["Title"] = "Información Curso";
+}
+<h1>@ViewData["Title"]</h1>
+
+<strong>Esto es desde la vista PRINCIPAL</strong>
+<p>
+    Nombre: @Model.Nombre <br/>
+    Id : @Model.Id
+</p>  
+
+<strong>Esto es desde la vista PARCIAL</strong>
+<partial name="EscuelaBaseSimple"/> 
+
+<p><i>@ViewBag.FechaActual</i></p>

@@ -14,7 +14,7 @@ namespace HolaMundoMVC.Controllers
             _context = context;
         }
         ///
-        /// visualizar asignatura por su ID
+        /// visualizar asignaturas
         ///
         [Route("Asignatura/Index/")]
         [Route("Asignatura/Index/{IdAsignatura}")]
@@ -26,7 +26,7 @@ namespace HolaMundoMVC.Controllers
                                         where asig.Id == IdAsignatura
                                         select asig;
 
-                return View(asignatura);
+                return View(asignatura.SingleOrDefault());
             }
             else
             {
