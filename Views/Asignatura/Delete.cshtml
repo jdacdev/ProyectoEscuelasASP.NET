@@ -1,0 +1,19 @@
+﻿@model Asignatura
+
+@{
+    ViewData["Title"] = "Información Asignatura";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h3>Esta seguro que desea eliminar el Alumno?</h3>
+<form method="POST">
+    <div>
+        <label asp-for="Id"></label>    
+        <input asp-for="Id" disabled/>
+    </div>
+    <div>
+        <label asp-for="Nombre"></label>    
+        <input asp-for="Nombre" disabled/>
+    </div>
+    <button class="btn btn-primary"type="submit">Eliminar</button>
+</form>

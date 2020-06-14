@@ -98,9 +98,34 @@ namespace HolaMundoMVC.Controllers
                 return View(curso);
             }
         }
-        public IActionResult MultipleCursos()
+
+        [HttpGet]
+        public IActionResult Delete(string id)
         {
-            return View(_context.Cursos);
+            if (string.IsNullOrEmpty(id))
+            {
+                ViewBag.mensaje = "El curso que intenta eliminar no existe";
+                return View("MultipleCursos",_context.Cursos);
+            }
+            Curso curso = _context.Cursos.Find(id);
+            if (curso == null)
+            {
+                ViewBag.mensaje = "El curso que intenta eliminar no existe";
+                return View("MultipleCursos",_context.Cursos);
+            }
+
+            return View(curso);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Curso curso)
+        {
+            Curso cursoDelete = _context.Cursos.Find(curso.Id);
+            _context.Cursos.Remove(cursoDelete);
+            _context.SaveChanges();
+
+            ViewBag.mensaje = string.Format("Curso {0} Eliminado", curso.Nombre);
+            return View("MultipleCursos",_context.Cursos);
         }
     }
 }
