@@ -52,8 +52,8 @@ namespace HolaMundoMVC.Controllers
                 _context.Cursos.Add(curso);
                 _context.SaveChanges();
 
-                ViewBag.MensajeExra ="Curso Creado";
-                return View("Index",_context.Cursos);
+                ViewBag.mensaje ="Curso Creado";
+                return View("Index",curso);
             }
             else
             {
@@ -61,6 +61,43 @@ namespace HolaMundoMVC.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                ViewBag.mensaje = "El curso que intenta actualizar no existe";
+                return View("MultipleCursos",_context.Cursos);
+            }
+            Curso curso = _context.Cursos.Find(id);
+            if (curso == null)
+            {
+                ViewBag.mensaje = "El curso que intenta actualizar no existe";
+                return View("MultipleCursos",_context.Cursos);
+            }
+
+            return View(curso);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Curso curso)
+        {
+            if (ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
+                curso.EscuelaId = escuela.Id;
+
+                _context.Update(curso);
+                _context.SaveChanges();
+
+                ViewBag.mensaje ="Curso Actualizado";
+                return View("Index",curso);
+            }
+            else
+            {
+                return View(curso);
+            }
+        }
         public IActionResult MultipleCursos()
         {
             return View(_context.Cursos);

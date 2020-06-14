@@ -5,6 +5,13 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+@if (ViewBag.mensaje != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.mensaje
+    </div>
+}
+
 <partial name = "EscuelaBaseMultiple">
 
 

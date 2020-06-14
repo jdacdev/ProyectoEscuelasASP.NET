@@ -4,7 +4,13 @@
     ViewData["Title"] = "Información Curso";
 }
 <h1>@ViewData["Title"]</h1>
-<h2>@ViewBag.MensajeExtra</h2>
+
+@if (ViewBag.mensaje != null)
+{
+<div class="alert alert-success" role="alert">
+    @ViewBag.mensaje
+</div>
+}
 
 <strong>Esto es desde la vista PRINCIPAL</strong>
 <p>
